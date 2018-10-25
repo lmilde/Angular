@@ -25,6 +25,11 @@ export class RecipeDetailComponent implements OnInit {
     this.sls.addIngrendients(this.selectedRecipe.ingredients);
   }
 
+  onDelete() {
+    this.router.navigate(['/rezepte']);
+    this.recipeService.deleteRecipe(this.recipeId);
+  }
+
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.recipeId = +params['id'];
