@@ -12,6 +12,11 @@ export class RecipeEditComponent implements OnInit {
 
   constructor(private recipeService: RecipeService) { }
 
+  onSubmit() {
+    const newRecipe = this.recipeForm.value;
+    this.recipeService.addRecipe(newRecipe);
+  }
+
   ngOnInit() {
     this.recipeForm = new FormGroup({
       'name': new FormControl(null, Validators.required),
