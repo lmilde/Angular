@@ -32,6 +32,11 @@ export class ShoppingListAddComponent implements OnInit, OnChanges {
     form.resetForm();
   }
 
+  onDelete(form: NgForm) {
+    this.sls.deleteIngredient(this.selectedIngredient);
+    this.onClear(form);
+  }
+
   ngOnChanges(changes) {
     if (changes.selectedIngredient.currentValue == null) {
       this.selectedIngredient = {name: null, amount: null};
