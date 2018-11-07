@@ -10,4 +10,12 @@ export class ShoppingListService {
   addIngrendients(ingredients: Ingredient[]) {
     Array.prototype.push.apply(this.ingredients, ingredients);
   }
+
+  addIngredient(ingredient: Ingredient) {
+   this.ingredients.push(ingredient);
+  }
+
+  deleteIngredient(ingredient: Ingredient) {
+    this.ingredients.splice(this.ingredients.indexOf(ingredient), 1);
+  }
 }
