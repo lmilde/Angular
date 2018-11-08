@@ -17,6 +17,19 @@ export class RecipeEditComponent implements OnInit {
     this.recipeService.addRecipe(newRecipe);
   }
 
+  onAddIngredientControl(name: string, amount: string) {
+    (<FormArray>this.recipeForm.get('ingredients')).push(
+      new FormGroup({
+        'name': new FormControl(name, Validators.required),
+        'amount': new FormControl(amount, Validators.required)
+      })
+    );
+  }
+
+  onRemoveIngredientControl(index: number) {
+    (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
+  }
+
   ngOnInit() {
     this.recipeForm = new FormGroup({
       'name': new FormControl(null, Validators.required),
